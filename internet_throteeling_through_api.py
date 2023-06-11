@@ -95,6 +95,7 @@ def startingTest():
             "mode": "online"
         }
         response = requests.post(url, headers=headers, json=body)
+        #Performing some actions in the app
         colorElement = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
             (MobileBy.ID, "com.lambdatest.proverbial:id/color")))
         colorElement.click()
