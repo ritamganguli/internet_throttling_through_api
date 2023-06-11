@@ -8,28 +8,10 @@ import os
 import requests
 desired_caps = {
     "lt:options": {
-        # "acceptInsecureCerts": True,
-        # "acceptSslCerts": True,
-        # "appiumVersion": "latest",
-        # "browserName": "chrome",
         "app":"lt://APP10160591891685101090430535",
         "build": "Goseetravel",
         "console": "False",
         "deviceName": "Galaxy S21 5G",
-        # "appiumVersion": "1.22.0",
-        # "enableNetworkThrottling": False,
-        # "extendedDebuging": True,
-        # "goog:chromeOptions": {
-        #     "androidKeepAppDataDir": True,
-        #     "args": [
-        # "--disable-translate",
-        # "--disable-features=Translate",
-        # "--auto-accept-camera-and-microphone-capture",
-        # "--use-fake-device-for-media-stream"
-        #     ]
-        # },
-        # "headless": False,
-        # "idleTimeout": "120",
         "isRealMobile": True,
         "name": "Date Range Picker issue",
         "platform": "android",
