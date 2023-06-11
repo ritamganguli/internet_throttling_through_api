@@ -57,11 +57,7 @@ def startingTest():
             accesskey = os.environ.get("LT_ACCESS_KEY")
         driver = webdriver.Remote(desired_capabilities=desired_caps, command_executor="https://" +
                                     username+":"+accesskey+"@mobile-hub.lambdatest.com/wd/hub")
-        # driver.get("https://www.airportrentals.com/")
-        # time.sleep(3)
-        # flight = WebDriverWait(driver, 30).until(EC.element_to_be_clickable(
-        #     (MobileBy.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.Button")))
-        # flight.click()
+        #Turning on the internet througt api
         url = f"https://mobile-api.lambdatest.com/mobile-automation/api/v1/sessions/{driver.session_id}/update_network"
         headers = {
             "Authorization": "Basic ZGVlcGFuc2h1bGFtYmRhdGVzdDpmOHhyOGVWN2hwSkppeE82c2JWbVBhekFINEM4Vm9BVWhFQU5QamlrYXlMVFhObEpLcw==",
@@ -72,6 +68,7 @@ def startingTest():
         }
         response = requests.post(url, headers=headers, json=body)
         print(response.status_code)
+        #Performing actions in app
         colorElement = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
             (MobileBy.ID, "com.lambdatest.proverbial:id/color")))
         colorElement.click()
@@ -110,6 +107,7 @@ def startingTest():
         home = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
             (MobileBy.ID, "com.lambdatest.proverbial:id/buttonPage")))
         home.click()
+        #Turning on the internet connection through api
         url = f"https://mobile-api.lambdatest.com/mobile-automation/api/v1/sessions/{driver.session_id}/update_network"
         body = {
             "mode": "online"
@@ -147,20 +145,5 @@ def startingTest():
         driver.quit()
     except Exception as e:
         print("Error: ", str(e))
-    # element_to_scroll = WebDriverWait(driver, 10).until(EC.presence_of_element_located((MobileBy.XPATH, "your_element_xpath")))
-    # scroll_to_element(driver, element_to_scroll)
-    # date_click = WebDriverWait(driver, 30).until(EC.element_to_be_clickable(
-    #     (MobileBy.XPATH, "/html/body/div[8]/div[5]/div/div[3]/div[10]/div")))
-    # date_click.click()
-    # date_click_01 = WebDriverWait(driver, 30).until(EC.element_to_be_clickable(
-    #     (MobileBy.XPATH, "//html/body/div[9]/div[2]/div[1]/div[2]/ul[2]/li[3]")))
-    # date_click_01.click()
-    # return_click = WebDriverWait(driver, 30).until(EC.element_to_be_clickable(
-    #     (MobileBy.XPATH, "/html/body/div[8]/div[5]/div/div[3]/div[11]/div/div/div")))
-    # return_click.click()
-    # return_click_01 = WebDriverWait(driver, 30).until(EC.element_to_be_clickable(
-    #     (MobileBy.XPATH, "/html/body/div[9]/div[2]/div[1]/div[2]/ul[3]/li[1]")))
-    # date_click_01.click()
-    # time.sleep(10)
     driver.quit()
 startingTest()
